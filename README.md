@@ -35,23 +35,23 @@ All files will be compiled with the following:
 
 
 ## Tasks:
-0. README, man, AUTHORS
-	*Write a README.
-	*Write a man for your shell.
-	*You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format, see Docker.
+0. README, man, AUTHORS  
+	*Write a README.  
+	*Write a man for your shell.  
+	*You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format, see Docker.  
 
-1. Betty would be proud.
-Write a beautiful code that passes the Betty checks
-Repo:GitHub repository: holbertonschool-simple_shell
+1. Betty would be proud.  
+Write a beautiful code that passes the Betty checks.  
+Repo:GitHub repository: holbertonschool-simple_shell  
 
-2. Simple shell 0.1
-Write a UNIX command line interpreter.
+2. Simple shell 0.1  
+Write a UNIX command line interpreter.  
 
 ``` Usage: simple_shell ```
 
-Your Shell should:
+Your Shell should:  
 
-	*Display a prompt and wait for the user to type a command. A command line always ends with a new line.  
+	*Display a prompt and wait for the user to type a command.   A command line always ends with a new line.  
 	*The prompt is displayed again each time a command has been executed.  
 	*The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.  
 	*The command lines are made only of one word. No arguments will be passed to programs.  
