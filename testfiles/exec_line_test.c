@@ -5,9 +5,9 @@
   */
 int main(void)
 {
-	char *input1[] = {"ls -l"};
-	char *input2[] = {"echo Hello, world!"};
-	char *input3[] = {"cd /tmp"};
+	char *input1[] = {"ls", "-l", NULL};
+	char *input2[] = {"echo", "Hello, world!", NULL};
+	char *input3[] = {"cd", "/tmp", NULL};
 	
 	exec_line(input1);
 	exec_line(input2);
