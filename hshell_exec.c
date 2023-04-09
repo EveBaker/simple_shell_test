@@ -6,9 +6,14 @@
   */
 void exec_line(char **args)
 {
-	int status;
-	pid_t child_pid = fork();
+	int status = 0;
+	pid_t child_pid;
 
+	if (args == NULL || *args == NULL)
+	{
+		return;
+	}
+	child_pid = fork();
 	switch (child_pid)
 	{
 		case -1:
@@ -21,9 +26,16 @@ void exec_line(char **args)
 			exit(1);
 			break;
 		default:
-			status = 0;
 			do {
-				waitpid(child_pid, &status, WUNTRACED);
+				if (waitpid(child_pid, &status, WUNTRACED) == -1)
+				{
+					if (errno == EINTR)
+					{
+					continue;
+					}
+					perror("hshell");
+					exit(1);
+				}
 			} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 			break;
 	}
