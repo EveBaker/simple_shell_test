@@ -43,7 +43,9 @@ int print_env(void); /* prints enviroment variables*/
 /*TEST*/
 void simple_shell(void);
 
-
+/* found in builtins.c */
+int hshell_exit(void);
+int hshell_env(void);
 
 
 

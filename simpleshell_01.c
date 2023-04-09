@@ -9,6 +9,7 @@ void simple_shell(void)
 {
 	char command[MAX_COMMAND_LEN + 1];
 	int status;
+	pid_t pid = fork();
 
 	while (1)
 	{
@@ -25,8 +26,6 @@ void simple_shell(void)
 		{/*Ignore empty lines*/
 			continue;
 		}
-		pid_t pid = fork();
-
 		if (pid == -1)
 		{
 			perror("fork");

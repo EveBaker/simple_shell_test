@@ -1,4 +1,4 @@
-#include "shell.c"
+#include "shell.h"
 /**
   * main - hshell main function implement simple shell
   * @argc: arg count 
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 			{/*Ignore empty lines*/
 				continue;
 			}
-			execute_command(command);
+			exec_line(command);
 		}
 	}
 	else
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 			{/*Remove trailing newline*/
 				command[bytes_read - 1] = '\0';
 			}
-			execute_command(command);
+			exec_line(command);
 		}
 		free(command);
 		exit(0);

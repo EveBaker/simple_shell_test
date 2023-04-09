@@ -19,7 +19,7 @@ int hshell_env(void)
 	index = 0;
 	while (environ[index] != NULL)
 	{
-		write(STDOUT_FILENO, environ[index], _strlen(environ[index]));
+		write(STDOUT_FILENO, environ[index], strlen(environ[index]));
 		write(STDOUT_FILENO, "\n", 1);
 		index++;
 	}
