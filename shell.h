@@ -11,6 +11,11 @@
 #include <sys/types.h>
 #include <stdbool.h>
 
+/*CONSTANT MACROS*/
+#define BUFFER 1024
+#define MAX_WORDS 100
+#define MAX_COMMAND_LEN 100
+
 /*GLOBAL VARIABLES*/
 extern char **environ;
 
@@ -32,7 +37,13 @@ char *read_line(void);/* reads shell command line*/
 char **token_line(char *line);/* tokenizes delimiters*/
 void exec_line(char **args);/*execute command line*/
 int exec_builtin_cmds(char **);
-void print_env(void); /* prints enviroment variables*/
+int print_env(void); /* prints enviroment variables*/
+
+
+/*TEST*/
+void simple_shell(void);
+
+
 
 
 
