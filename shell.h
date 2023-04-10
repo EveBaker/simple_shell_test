@@ -10,13 +10,20 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <stdbool.h>
+#include <errno.h>
+#include <signal.h>
+
+
+
 
 /*CONSTANT MACROS*/
 #define BUFFER 1024
 #define MAX_WORDS 100
 #define MAX_COMMAND_LEN 100
 
+
 /*GLOBAL VARIABLES*/
+
 extern char **environ;
 
 /*GLOBAL STRUCTURES*/
@@ -47,8 +54,8 @@ void simple_shell(void);
 /* found in builtins.c */
 int hshell_exit(void);
 int hshell_env(void);
-
-
+size_t count_tokens(char **tokens);
+/*functions from practice?? needed?*/
 
 
 #endif

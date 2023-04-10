@@ -36,6 +36,11 @@ char **token_line(char *line)
 			}
 		}
 		token = strtok(NULL, delimiters);
+		if (token == NULL && line_len == 1)
+		{
+			free(words);
+			return (NULL);
+		}
 	}
 	words[line_len] = NULL;
 	return (words);

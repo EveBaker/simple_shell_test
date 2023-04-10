@@ -25,3 +25,25 @@ int hshell_env(void)
 	}
 	return (0);
 }
+/**
+ * count_tokens - count the number of tokens in a
+ * NULL-terminated array
+ * @tokens: the array of tokens
+ *
+ * Return: the number of tokens in the array
+ */
+size_t count_tokens(char **tokens)
+{
+	size_t count = 0;
+	
+	if (tokens == NULL || *tokens == NULL)
+	{
+		printf("Error: tokens not found");
+		exit(EXIT_FAILURE);
+	}
+	while (tokens[count] != NULL)
+	{
+		count++;
+	}
+	return (count);
+}
