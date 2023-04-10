@@ -29,3 +29,20 @@ int exec_builtin_cmds(char **user_args)
 	}
 	return (0);
 }
+
+/**
+**shell_num_builtins - this check num built-ins
+**@builtin: takes the builtin to be counted
+**Return: num of built-ins
+**/
+
+int shell_num_builtins(built_s builtin[])
+{
+	unsigned int i;
+
+	i = 0;
+	while (builtin[i].name != NULL)
+		i++;
+
+	return (i);
+}
