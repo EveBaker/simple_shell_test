@@ -1,49 +1,60 @@
 #include "shell.h"
-/**
-* shell_exit - exits the shell
-* Return: void
-*/
-int hshell_exit(void)
-{
-	return (-1);
-}
 
 /**
-*shell_env - prints environment
-*Return: void
-*/
-int hshell_env(void)
+ * shell_cd - implementing cd command
+ * @argv: path of directory
+ * @env: unused variable
+ * Return: 0 on suceess, -1 if function fails
+ */
+
+int shell_cd(char *argv[], __attribute__((unused)) char **env)
 {
-	unsigned int index;
-	
-	index = 0;
-	while (environ[index] != NULL)
+	char cwd[128];
+
+	if (argv[1][0] != '/')
 	{
-		write(STDOUT_FILENO, environ[index], strlen(environ[index]));
-		write(STDOUT_FILENO, "\n", 1);
-		index++;
+		getcwd(cwd, sizeof(cwd));
+		strcat(cwd, "/");
+		strcat(cwd, argv[1]);
+		chdir(cwd);
+	}
+	else
+	{
+		chdir(argv[1]);
 	}
 	return (0);
 }
+
 /**
- * count_tokens - count the number of tokens in a
- * NULL-terminated array
- * @tokens: the array of tokens
- *
- * Return: the number of tokens in the array
+ * shell_env - Prints environment variables
+ * @argv: unused variable
+ * @environ: environment variable
+ * Return: 0 on success, -1 if fails
  */
-size_t count_tokens(char **tokens)
+
+
+int shell_env(__attribute__((unused)) char *argv[], char **environ)
 {
-	size_t count = 0;
-	
-	if (tokens == NULL || *tokens == NULL)
+	int i;
+
+	i = 0;
+	while (environ[i] != NULL)
 	{
-		printf("Error: tokens not found");
-		exit(EXIT_FAILURE);
+		printf("%s\n", environ[i]);
+		i = i + 1;
 	}
-	while (tokens[count] != NULL)
-	{
-		count++;
-	}
-	return (count);
+	return (0);
+}
+
+/**
+ * shell_exit - Exits the shell
+ * @argv: Unused variable
+ * @env: Unused variable
+ * Return: Function never returns
+ */
+int shell_exit(__attribute__((unused)) char *argv[],
+	       __attribute__((unused)) char **env)
+{
+	free(argv[0]);
+	exit(0);
 }
