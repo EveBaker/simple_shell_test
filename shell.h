@@ -44,8 +44,9 @@ char *read_line(void);/* reads shell command line*/
 char **token_line(char *line);/* tokenizes delimiters*/
 void exec_line(char **args);/*execute command line*/
 int exec_builtin_cmds(char **);
-char *_getenv(const char *name);/* prints enviroment variables*/
-char **copy_env(char **environ_copy, unsigned int environ_length);/* copys env */
+int shell_cd(char *argv[], __attribute__((unused)) char **env);
+int shell_env(__attribute__((unused)) char *argv[], char **environ);
+int shell_exit(__attribute__((unused)) char *argv[];
 void prompt(int fd, struct stat buf);
 int child(char *fullpath, char **tokens);
 void _puts(char *str);
