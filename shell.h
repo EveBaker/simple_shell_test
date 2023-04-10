@@ -44,9 +44,15 @@ char *read_line(void);/* reads shell command line*/
 char **token_line(char *line);/* tokenizes delimiters*/
 void exec_line(char **args);/*execute command line*/
 int exec_builtin_cmds(char **);
-char *_getenv(const char *name) /* prints enviroment variables*/
-char **copy_env(char **environ_copy, unsigned int environ_length) /* copys env */
-
+char *_getenv(const char *name);/* prints enviroment variables*/
+char **copy_env(char **environ_copy, unsigned int environ_length);/* copys env */
+void prompt(int fd, struct stat buf);
+int child(char *fullpath, char **tokens);
+void _puts(char *str);
+char *_which(char *command, char *fullpath, char *path);
+void errors(int error);
+void free_all(char **tokens, char *path, char *line, char *fullpath, int flag);
+void free_dp(char **array, unsigned int length);
 
 /*TEST*/
 void simple_shell(void);
