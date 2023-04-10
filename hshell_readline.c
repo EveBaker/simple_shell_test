@@ -1,30 +1,29 @@
 #include "shell.h"
+
 /**
-  * read_line - function that prints $ and waits for command
-  * Return: 0 is success
-  */
+ * hshell_readline - uses getline to read a line
+ *
+ * Return: the line
+ */
 
-
-char *read_line(void)
+char *hshell_readline(void)
 {
 	char *line = NULL;
-	ssize_t len = 0;
-	size_t	size = 0;
+	size_t bufsize = 0;
 
-	printf("$ ");
-	/*getline reads user input*/
-	len = getline(&line, &size, stdin);
-	/*if user enters nothing getline returns -1*/
-	if (len != -1)
+	if (getline(&line, &bufsize, stdin) == -1)
 	{
-	/*if user enters command*/
-		printf("%s", line);
-		if (line != NULL)
+		if (feof(stdin))
 		{
-		/*getline allocates memory*/
-		free(line);
-		line = NULL;
+			free(line);
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			perror("readline");
+			exit(EXIT_FAILURE);
 		}
 	}
+
 	return (line);
 }
