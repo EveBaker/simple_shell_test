@@ -17,12 +17,12 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", 2);
 
-		line = hshell_readline();
-		tokens = hshell_splitline(line);
+		line = shell_readline();
+		tokens = shell_splitline(line);
 
 		if (tokens[0] != NULL)
 		{
-			hshell_exec(tokens);
+			shell_exec(tokens);
 		}
 		free(tokens);
 		free(line);
