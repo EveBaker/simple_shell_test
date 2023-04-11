@@ -9,7 +9,7 @@ int print_env(void)
 
 	while (*env != NUll)
 	{
-		printf(%s\n, *env);
+		printf("%s\n", *env);
 		env++;
 	}
 	return (0);
