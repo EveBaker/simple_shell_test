@@ -1,4 +1,4 @@
-#include "shell.h"
+include "main.h"
 
 /**
  * main - entry point
@@ -9,19 +9,23 @@
 int main(void)
 {
 	char *line;
-	char **args;
+	char **tokens;
 
-	while (1)
+	while (true)
 
 	{
-		line = read_line();
-		args = token_line(line);
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "$ ", 2);
 
-		if (args && args[0])
+		line = hshell_readline();
+		tokens = hshell_splitline(line);
+
+		if (tokens[0] != NULL)
 		{
-			exec_line(args);
+			hshell_exec(tokens);
 		}
+		free(tokens);
 		free(line);
-		free(args);
+
 	}
 }
