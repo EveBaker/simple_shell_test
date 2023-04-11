@@ -45,6 +45,7 @@ char **token_line(char *line);/* tokenizes delimiters*/
 void exec_line(char **args);/*execute command line*/
 int exec_builtin_cmds(char **);
 int print_env(void) /* prints enviroment variables*/
+char *strtok(char *str, const char *delim);
 
 
 /*TEST*/
