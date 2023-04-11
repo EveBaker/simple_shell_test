@@ -44,8 +44,7 @@ char *read_line(void);/* reads shell command line*/
 char **token_line(char *line);/* tokenizes delimiters*/
 void exec_line(char **args);/*execute command line*/
 int exec_builtin_cmds(char **);
-char *_getenv(const char *name) /* prints enviroment variables*/
-char **copy_env(char **environ_copy, unsigned int environ_length) /* copys env */
+int print_env(void) /* prints enviroment variables*/
 
 
 /*TEST*/
