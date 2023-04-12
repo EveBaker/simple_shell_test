@@ -28,12 +28,27 @@ extern char **environ;
 
 /*GLOBAL STRUCTURES*/
 
+<<<<<<< HEAD
+=======
+/**
+  * struct path_node - struct for LinkList
+  * nodes created for directory PATH
+  * Return: Always 0
+  */
+typedef struct path_node
+{
+	char *directory;
+	struct path_node *next;
+} path_node;
+
+>>>>>>> 6a2db32cb4cd7fe4d576e3a077de8b48f70d1eb5
 int main(void);
 char *read_line(void);/* reads shell command line*/
 char **token_line(char *line);/* tokenizes delimiters*/
 void exec_line(char **args);/*execute command line*/
 int exec_builtin_cmds(char **);
-int print_env(void); /* prints enviroment variables*/
+int print_env(void) /* prints enviroment variables*/
+char *strtok(char *str, const char *delim);
 
 
 /* found in shell_pers.c */
