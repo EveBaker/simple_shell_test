@@ -8,8 +8,9 @@ void exec_line(char **args)
 {
 	int status = 0;
 	pid_t child_pid;
+	char *envp[] = {NULL};
 
-	if (args == NULL || *args == NULL)
+	if (args == NULL || args[0] == NULL)
 	{
 		return;
 	}
@@ -21,7 +22,7 @@ void exec_line(char **args)
 			exit(1);
 			break;
 		case 0:
-			execvp(args[0], args);
+			execve(args[0], args, envp);
 			perror("hshell");
 			exit(1);
 			break;
