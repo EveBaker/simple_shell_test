@@ -15,7 +15,7 @@ int main(void)
 
 	{
 		line = read_line();
-		args = token_line(line);
+		args = split_line(line);
 
 		if (args && args[0])
 		{

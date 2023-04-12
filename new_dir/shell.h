@@ -18,10 +18,10 @@
 
 /*CONSTANT MACROS*/
 #define BUFFER 1024
-#define MAX_WORDS 20
+#define MAX_WORDS 100
 #define MAX_COMMAND_LEN 100
 #define  DELIMITERS " \t\r\n"
-#define PROMPT "$ "
+
 /*GLOBAL VARIABLES*/
 
 extern char **environ;
@@ -35,9 +35,6 @@ void exec_line(char **args);/*execute command line*/
 int exec_builtin_cmds(char **);
 int print_env(void); /* prints enviroment variables*/
 
-
-/* found in shell_pers.c */
-void print_prompt(void);
 
 /*TEST*/
 void simple_shell(void);
