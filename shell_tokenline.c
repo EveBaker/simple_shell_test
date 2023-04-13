@@ -8,9 +8,8 @@ char **token_line(char *line)
 {
 	unsigned int line_len = 0;
 	unsigned int size = BUFFER / sizeof(char *);
-	char *delimiters = " \t\r\n";
-	char *token = strtok(line, delimiters);
-	char **words = malloc(size * sizeof(char *));
+	char *token = strtok(line, DELIMITERS);
+char **words = malloc(size * sizeof(char *));
 
 	if (line == NULL || *line == '\0')
 	{
@@ -35,7 +34,7 @@ char **token_line(char *line)
 				exit(EXIT_FAILURE);
 			}
 		}
-		token = strtok(NULL, delimiters);
+		token = strtok(NULL, DELIMITERS);
 		if (token == NULL && line_len == 1)
 		{
 			free(words);
